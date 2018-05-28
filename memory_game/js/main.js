@@ -43,9 +43,9 @@ console.log("User flipped" + cards[cardId].rank);
 cardsInPlay.push(cards[cardId].rank);
 
 //dispaly path to image in the console
-console.log(cards[cardId].cardImage);
+console.log(cards[cardId].cardImage)
 //display the suit in the console
-console.log(cards[cardId].suit);
+console.log(cards[cardId].suit)
 
   //check to see if two cards were played
   if (cardsInPlay.length === 2) {
