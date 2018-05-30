@@ -32,20 +32,24 @@ alert("You found a match!");
 } else {
 alert("Sorry, try again.");
 }
-}
+};
 
 //created a function to repeate a user flipping card
-var flipCard = function (cardId) {
+var flipCard = function () {
+  //get the data-id of the card that was just flipped
+   cardId = this.getAttribute('data-id');
+
+
+
   //dislay the card the user just flipped
-console.log("User flipped" + cards[cardId].rank);
+
 
 //add card to array of cards that is in play
 cardsInPlay.push(cards[cardId].rank);
 
-//dispaly path to image in the console
-console.log(cards[cardId].cardImage)
-//display the suit in the console
-console.log(cards[cardId].suit)
+
+//displat the cards image
+this.setAttribute('src', cards[cardId].cardImage);
 
   //check to see if two cards were played
   if (cardsInPlay.length === 2) {
@@ -55,9 +59,26 @@ console.log(cards[cardId].suit)
     cardsInPlay = [];
   }
 };
-//for now, we are manually calling the flipCard function
-//to represent a users play
-//call the flipCard function, passing in an index as the argument
-flipCard(0);
-//call the flipCard function, as well.
-flipCard(2);
+
+//function that creates board
+var createBoard = function() {
+  //loop through card array to create card elements for the board
+  for (var i = 0; i < cards.length; i++){
+    //created an img element which will be used
+    var cardElement = document.createElement('img');
+//set the src attribute to display back of card image
+    cardElement.setAttribute('src', 'images/back.png');
+        // Set the card's 'data-id' attribute to be the index of the current element
+    // data- attributes are meant to store data about an element that is not tied to a style.
+    cardElement.setAttribute('data-id', i);
+      //added an event listener so that when a card is clicked,
+//the function flipCard will be executed
+    cardElement.addEventListener('click', flipCard);
+
+    //appended the card to the board
+    document.getElementById('game-board').appendChild(cardElement);
+  }
+};
+
+//call the createBoard function to create the board.
+createBoard();
