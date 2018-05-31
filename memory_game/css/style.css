@@ -88,6 +88,7 @@ footer {
 .message {
   float:right;
   font-family: "Raleway", serif;
+
 }
 
 .clearfix:after {
@@ -107,4 +108,11 @@ footer {
 a:hover{
 /* Ypur styles here */
 border-color: white;
+}
+
+.twitter {
+  height: 60px;
+  width: 60px;
+  margin: 10px 0px 0px 0px;
+  padding-top: 10px;
 }
